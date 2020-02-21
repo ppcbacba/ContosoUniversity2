@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ContosoUniversity.Models.Course" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAIAAgEAAAAAAAAAAEAAAACQAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Course.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ContosoUniversity.Models.Department" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAQAACEAAAAAAAAAAFAAgAA=</HashCode>
+      <FileName>Models\Department.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ContosoUniversity.Models.Enrollment" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAIAAAAAAAAAAAAwAAAAAAAECAAA=</HashCode>
+      <FileName>Models\Enrollment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ContosoUniversity.Models.Instructor" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgIACAAAAAAAAACAAAAAAAAAAABAgAAg=</HashCode>
+      <FileName>Models\Instructor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ContosoUniversity.Models.OfficeAssignment" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAACAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Models\OfficeAssignment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ContosoUniversity.Models.Student" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAgIAAAAAAAAAAAAAAACAAAAAAAAAgAAg=</HashCode>
+      <FileName>Models\Student.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>
