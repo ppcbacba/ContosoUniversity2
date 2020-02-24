@@ -11,35 +11,78 @@
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal">
-        <h4>Instructor</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.ID)
+<div class="form-horizontal">
+    <h4>Instructor</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.ID)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
-            </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
         </div>
+    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.FirstMidName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.FirstMidName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.FirstMidName, "", new { @class = "text-danger" })
-            </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.FirstMidName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.FirstMidName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.FirstMidName, "", new { @class = "text-danger" })
         </div>
+    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.HireDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.HireDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.HireDate, "", new { @class = "text-danger" })
-            </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.HireDate, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.HireDate, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.HireDate, "", new { @class = "text-danger" })
         </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.OfficeAssignment.Location, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.OfficeAssignment.Location)
+            @Html.ValidationMessageFor(model => model.OfficeAssignment.Location)
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            @* 这段代码创建了一个HTML表格，其中包含三列。在每一列中显示了课程的编号和标题以及一个复选框。
+                所有的复选框都使用同一个name”selectedCourses”，通知模型绑定器将它们作为一个组来进行处理。
+                每个复选框的Value属性被设定为CourseID的值，当页面提交时，模型绑定器将一个仅包含了
+                已选择复选框的CourseID值作为数组传递给控制器。 *@
+            @* 复选框最初呈现时，已经分配给教师的课程会带有checked特性，被设置为选中状态。 *@
+            @* 在你更改课程分配后，你会想要能够返回索引页来验证这些更改。
+                因此，您需要将课程列添加到页面的表格中。在这种情况下你不需要使用ViewBag对象，因为你想要显示的信息已经在Instructor实体的Courses导航属性中并作为模型传递给视图了。 *@
+            <table>
+                <tr>
+                    @{
+                        int cnt = 0;
+                        List<ContosoUniversity.ViewModels.AssignedCourseData> courses = ViewBag.Courses;
+
+                        foreach (var course in courses)
+                        {
+                            if (cnt++ % 3 == 0)
+                            {
+                            @:</tr><tr>
+                            }
+                            @:<td>
+                                <input type="checkbox"
+                                       name="selectedCourses"
+                                       value="@course.CourseID"
+                                       @(Html.Raw(course.Assigned ? "checked=\"checked\"" : "")) />
+                                @course.CourseID @: @course.Title
+                            @:</td>
+                        }
+                    @:</tr>
+                    }
+                </table>
+            </div>
+    </div>
+
+
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
